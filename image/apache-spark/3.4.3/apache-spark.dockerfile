@@ -9,6 +9,7 @@ RUN set -x \
     && yum clean all \
     && yum update -y \
     && yum install -y /tmp/jdk-22_linux-x64_bin.rpm
+
 # Install Apache Spark.
 RUN set -x \
     && wget https://downloads.apache.org/spark/spark-3.4.3/spark-3.4.3-bin-hadoop3.tgz --quiet \
@@ -17,6 +18,7 @@ RUN set -x \
     && mkdir -p /usr/local/lib/spark \
     && cp -r spark-3.4.3-bin-hadoop3/* /usr/local/lib/spark/ \
     && rm -rf spark-3.4.3*
+
 # Create Spark directories.
 RUN set -x \
   && mkdir /opt/spark \
